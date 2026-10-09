@@ -1,0 +1,550 @@
+/* ==========================================
+   VARIABLES DE COLOR Y FUENTES (IDENTIDAD VISUAL)
+   ========================================== */
+:root {
+    /* Fondo plateado/gris claro suave */
+    --color-fondo: #e5e7eb;
+    --color-tarjeta: #ffffff;
+    
+    /* Colores Principales y Complementario (Rosa Pastel) */
+    --color-complementario: #f472b6; /* Rosa Pastel */
+    --color-principal: #ec4899;      /* Rosa Intenso para botones e interactividad */
+    --color-oscuro: #1f2937;         /* Texto oscuro y encabezados */
+    --color-texto: #4b5563;          /* Texto secundario */
+    --color-borde: #d1d5db;          /* Borde fino gris */
+
+    /* Tipografías */
+    --fuente-titulos: 'Playfair Display', Georgia, serif;
+    --fuente-textos: 'Poppins', Arial, sans-serif;
+}
+
+/* ==========================================
+   RESET BÁSICO Y ESTILOS GENERALES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-textos);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Tipografía de Títulos */
+h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-oscuro);
+}
+
+/* Títulos de sección reutilizables */
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* Ajuste general de imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Enlaces limpios */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   1. HEADER Y NAVEGACIÓN (FLEXBOX)
+   ========================================== */
+.encabezado {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--color-principal);
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-oscuro);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    color: var(--color-principal);
+    background-color: #fce7f3;
+}
+
+/* ==========================================
+   2. HERO SECCIÓN (FLEXBOX 2 COLUMNAS)
+   ========================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 5%;
+    gap: 40px;
+    background-color: #f3f4f6;
+    min-height: 80vh;
+}
+
+.hero-columna-texto {
+    flex: 1;
+}
+
+.etiqueta-subtitulo {
+    display: inline-block;
+    background-color: #fce7f3;
+    color: var(--color-principal);
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.hero-titulo {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-eslogan {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-principal);
+    margin-bottom: 15px;
+}
+
+.hero-descripcion {
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.boton-cta {
+    display: inline-block;
+    background-color: var(--color-principal);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.boton-cta:hover {
+    background-color: #db2777;
+}
+
+.hero-columna-imagen {
+    flex: 1;
+}
+
+.hero-columna-imagen img {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   3. NOSOTROS (FLEXBOX)
+   ========================================== */
+.nosotros {
+    display: flex;
+    align-items: center;
+    padding: 70px 5%;
+    gap: 40px;
+    background-color: #ffffff;
+}
+
+.nosotros-imagen {
+    flex: 1;
+}
+
+.nosotros-imagen img {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nosotros-contenido {
+    flex: 1;
+}
+
+.nosotros-contenido h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.nosotros-contenido p {
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   4. PRODUCTOS (FLEXBOX CON FLEX-WRAP)
+   ========================================== */
+.productos {
+    padding: 70px 5%;
+}
+
+.productos-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta-producto {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    width: calc(33.333% - 20px);
+    min-width: 260px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+.tarjeta-producto:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-producto img {
+    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tarjeta-producto h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-principal);
+    margin-bottom: 15px;
+}
+
+.boton-tarjeta {
+    background-color: var(--color-oscuro);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.boton-tarjeta:hover {
+    background-color: var(--color-principal);
+}
+
+/* ==========================================
+   5. BENEFICIOS / SERVICIOS (FLEXBOX)
+   ========================================== */
+.servicios {
+    background-color: #ffffff;
+    padding: 70px 5%;
+}
+
+.servicios-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta-servicio {
+    background-color: var(--color-fondo);
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+.tarjeta-servicio:hover {
+    background-color: #fce7f3;
+}
+
+.icono-servicio {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta-servicio h3 {
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   6. SECCIÓN TABLA
+   ========================================== */
+.seccion-tabla {
+    padding: 70px 5%;
+}
+
+.contenedor-tabla {
+    overflow-x: auto;
+}
+
+.tabla-informacion {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-informacion th, 
+.tabla-informacion td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-informacion th {
+    background-color: var(--color-principal);
+    color: #ffffff;
+    font-family: var(--fuente-textos);
+    font-weight: 600;
+}
+
+.tabla-informacion tr:hover {
+    background-color: #fdf2f8;
+}
+
+/* ==========================================
+   7. GALERÍA (FLEXBOX CON FLEX-WRAP)
+   ========================================== */
+.galeria {
+    background-color: #ffffff;
+    padding: 70px 5%;
+}
+
+.galeria-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galeria-item {
+    width: calc(33.333% - 20px);
+    min-width: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.galeria-item img:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================
+   8. FORMULARIO DE CONTACTO
+   ========================================== */
+.contacto {
+    padding: 70px 5%;
+}
+
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo-formulario label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-oscuro);
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-family: var(--fuente-textos);
+    font-size: 0.95rem;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    outline: 2px solid var(--color-principal);
+}
+
+.boton-enviar {
+    background-color: var(--color-principal);
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.boton-enviar:hover {
+    background-color: #db2777;
+}
+
+/* ==========================================
+   9. FOOTER (PIE DE PÁGINA CON FLEXBOX)
+   ========================================== */
+.pie-pagina {
+    background-color: var(--color-oscuro);
+    color: #f3f4f6;
+    padding: 40px 5% 20px 5%;
+}
+
+.pie-pagina-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.pie-columna {
+    flex: 1;
+    min-width: 220px;
+}
+
+.pie-titulo {
+    color: var(--color-complementario);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.pie-columna h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.pie-columna p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.pie-columna a:hover {
+    color: var(--color-complementario);
+}
+
+.derechos-autor {
+    text-align: center;
+    border-top: 1px solid #374151;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* ==========================================
+   10. DISEÑO RESPONSIVE BASIC (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Header en columna */
+    .encabezado {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Hero de 2 columnas a 1 columna */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .hero-titulo {
+        font-size: 2.2rem;
+    }
+
+    /* Nosotros a 1 columna */
+    .nosotros {
+        flex-direction: column;
+    }
+
+    /* Tarjetas de producto al 100% */
+    .tarjeta-producto {
+        width: 100%;
+    }
+
+    /* Ítems de galería al 100% */
+    .galeria-item {
+        width: 100%;
+    }
+
+    /* Ajuste Footer */
+    .pie-pagina-contenedor {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
